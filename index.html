@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Snake Tik · La serpiente que juega sola en tu directo de TikTok</title>
+<meta name="description" content="Snake Tik: tu público regala en TikTok LIVE y la serpiente recibe manzanas, bombas o un airdrop. Juega sola con una IA que llena el tablero. Para Windows.">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:title" content="Snake Tik"><meta property="og:description" content="La serpiente que juega sola en tu directo de TikTok."><meta property="og:image" content="/img/logo.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="blobs"><i></i><i></i><i></i></div>
+
+<nav class="nav">
+  <a class="brand" href="#inicio"><img src="/img/logo.png" alt="">SNAKE TIK</a>
+  <div class="links"><a href="#como">Cómo funciona</a><a href="#demo">Demo</a><a href="#funciones">Funciones</a><a href="#preguntas">Preguntas</a></div>
+  <div class="grow"></div>
+  <a class="btn btn-primary btn-sm jelly" href="#descargar">⬇️ Descargar</a>
+</nav>
+
+<header class="wrap hero" id="inicio">
+  <div class="reveal">
+    <span class="eyebrow">🐍 Para tus directos de TikTok</span>
+    <h1>La serpiente que <span class="g">juega sola</span> mientras tu público <span class="v">regala</span>.</h1>
+    <p class="lead">Snake Tik se conecta a tu LIVE: cada regalo suelta manzanas, bombas o un airdrop sobre el tablero, y una IA muy lista intenta llenarlo entero. Tú solo pones la ventana en TikTok LIVE Studio.</p>
+    <div class="cta">
+      <a class="btn btn-primary btn-lg jelly" href="#descargar">⬇️ Descargar para Windows</a>
+      <a class="btn btn-ghost btn-lg jelly" href="#demo">▶ Probar la demo</a>
+    </div>
+    <div class="meta"><span>🪟 Windows 10 y 11</span><span>📱 Formato 9:16</span><span>🌍 6 idiomas</span></div>
+  </div>
+  <div class="reveal" style="position:relative">
+    <div class="phone"><canvas id="heroCanvas" width="1080" height="1920"></canvas></div>
+    <span class="float-gift" style="left:4%;top:60%">🌹</span>
+    <span class="float-gift" style="right:2%;top:40%;animation-delay:-1.4s">🍩</span>
+    <span class="float-gift" style="left:10%;top:22%;animation-delay:-2.6s">🌌</span>
+  </div>
+</header>
+
+<section class="wrap" id="como">
+  <div class="center reveal"><span class="eyebrow">✨ Así de fácil</span><h2>Cómo funciona</h2><p class="lead">Cuatro pasos y tu directo tiene un juego que se mueve solo.</p></div>
+  <div class="steps">
+    <div class="step reveal"><div class="num">1</div><h3>Descarga</h3><p>Un solo archivo para Windows. Se actualiza solo cuando sale una versión nueva.</p></div>
+    <div class="step reveal"><div class="num">2</div><h3>Conecta tu TikTok</h3><p>Escribe tu usuario y elige la cuenta con la que vas a hacer directo.</p></div>
+    <div class="step reveal"><div class="num">3</div><h3>Captura la ventana</h3><p>Añade la ventana del juego (9:16) en TikTok LIVE Studio. Los paneles de control no salen en el directo.</p></div>
+    <div class="step reveal"><div class="num">4</div><h3>Tu público juega</h3><p>Rosa = manzanas, Dona = bombas, Galaxia = airdrop… Tú decides qué hace cada regalo.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="demo">
+  <div class="center reveal"><span class="eyebrow">🎮 Demo en vivo</span><h2>Pruébalo aquí mismo</h2><p class="lead">Es el mismo juego del programa. Pulsa los botones como si fueran regalos de tu público.</p></div>
+  <div class="demo">
+    <div class="phone reveal"><canvas id="demoCanvas" width="1080" height="1920"></canvas></div>
+    <div class="panel reveal">
+      <h3>🎁 Regalos</h3>
+      <div class="row">
+        <button class="btn btn-green btn-sm jelly" data-gift="apples,5">🌹 +5 manzanas</button>
+        <button class="btn btn-ghost btn-sm jelly" data-gift="apples,150">💐 +150 manzanas</button>
+        <button class="btn btn-ghost btn-sm jelly" data-gift="gold,3">🍏 Doradas</button>
+        <button class="btn btn-ghost btn-sm jelly" data-gift="bombs,5">🎵 +5 bombas</button>
+        <button class="btn btn-ghost btn-sm jelly" data-gift="bombs,60">🍩 +60 bombas</button>
+        <button class="btn btn-primary btn-sm jelly" data-gift="airdrop,300">🌌 Airdrop</button>
+        <button class="btn btn-danger btn-sm jelly" id="dLose">💀 Perder</button>
+      </div>
+      <h3>🟩 Pista</h3><div class="row" id="dBoards"></div>
+      <h3>🐍 Animal</h3><div class="row" id="dAnimals"></div>
+      <h3>⌨️ Sonido de las teclas</h3><div class="row" id="dKeys"></div>
+      <p class="note">🔊 Activa el sonido de tu navegador. En el programa hay muchas más opciones: velocidad, tamaño del tablero, colores, efectos de sonido propios…</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="funciones">
+  <div class="center reveal"><span class="eyebrow">🧩 Todo incluido</span><h2>Funciones</h2></div>
+  <div class="feats">
+    <div class="feat reveal"><span class="ic">🧠</span><h3>IA que casi nunca pierde</h3><p>Busca la manzana más cercana solo si después puede seguir moviéndose, y si se queda en bucle se rescata sola.</p></div>
+    <div class="feat reveal"><span class="ic">🎁</span><h3>Cualquier regalo</h3><p>Elige qué hace cada regalo de TikTok (incluidos los de temporada) o cada cierto número de likes.</p></div>
+    <div class="feat reveal"><span class="ic">✈️</span><h3>Airdrop</h3><p>Un avión cruza el tablero soltando cientos de manzanas a la vez.</p></div>
+    <div class="feat reveal"><span class="ic">🎨</span><h3>Pistas y animales</h3><p>Pasto, tierra, buscaminas, arena, nieve, neón o caramelo. Serpiente, cocodrilo, dragón, gusano, oruga… y el color que quieras.</p></div>
+    <div class="feat reveal"><span class="ic">⌨️</span><h3>Teclas mecánicas</h3><p>18 switches reales (Cherry MX, Holy Pandas, Topre…) suenan con cada giro, más efectos para cada momento.</p></div>
+    <div class="feat reveal"><span class="ic">⏱️</span><h3>Cuenta atrás al 100 %</h3><p>Al llenar el tablero empieza una cuenta atrás. Si llega una bomba, se reinicia. ¡Tensión asegurada!</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="preguntas">
+  <div class="center reveal"><span class="eyebrow">💬 Dudas</span><h2>Preguntas frecuentes</h2></div>
+  <div class="faq">
+    <details class="reveal"><summary>¿Qué necesito?</summary><p>Un PC con Windows 10 u 11, Google Chrome y TikTok LIVE Studio (u otro programa para emitir) donde capturar la ventana del juego.</p></details>
+    <details class="reveal"><summary>¿Necesito instalar algo más?</summary><p>No. Descargas Snake Tik, lo abres y listo. Se actualiza solo.</p></details>
+    <details class="reveal"><summary>¿Cómo se ve en el directo?</summary><p>La ventana del juego está en formato vertical 9:16 (1080×1920). El panel donde configuras todo y el botón de perder no salen en el directo.</p></details>
+    <details class="reveal"><summary>¿Puedo cambiar qué hace cada regalo?</summary><p>Sí: cualquier regalo activo de TikTok puede dar manzanas, manzanas doradas, bombas o un airdrop, en la cantidad que quieras.</p></details>
+    <details class="reveal"><summary>¿Hay soporte?</summary><p>Sí, en nuestro Discord: <a href="https://discord.gg/K6TCjKAyds" target="_blank" rel="noopener">discord.gg/K6TCjKAyds</a></p></details>
+  </div>
+</section>
+
+<section class="wrap" id="descargar">
+  <div class="download reveal">
+    <img src="/img/logo.png" alt="Snake Tik">
+    <h2>Descarga Snake Tik</h2>
+    <p class="lead" style="margin:0 auto 26px">Para Windows 10 y 11 · <span id="ver">última versión</span></p>
+    <a class="btn btn-primary btn-lg jelly" id="dl" href="https://github.com/cristiancordova1207/Snake-Tik---Releases/raw/main/Snake-Tik.exe">⬇️ Descargar Snake-Tik.exe</a>
+    <p class="note" style="margin-top:16px">Si Windows muestra un aviso de SmartScreen, pulsa “Más información” → “Ejecutar de todas formas”.</p>
+  </div>
+</section>
+
+<div class="wrap"><footer><span>© Snake Tik · Wylo</span><span><a href="https://discord.gg/K6TCjKAyds" target="_blank" rel="noopener">💬 Discord</a> · <a href="https://github.com/cristiancordova1207/Snake-Tik---Releases" target="_blank" rel="noopener">GitHub</a></span></footer></div>
+
+<script src="/ui/snake-core.js"></script>
+<script src="/ui/sfx.js"></script>
+<script src="/ui/i18n.js"></script>
+<script src="/ui/render.js"></script>
+<script src="/main.js"></script>
+</body>
+</html>
