@@ -82,4 +82,8 @@ document.addEventListener('click', (e) => {
 const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 fetch('https://raw.githubusercontent.com/cristiancordova1207/Snake-Tik---Releases/main/latest.json').then((r) => r.json()).then((d) => { $('#ver').textContent = 'v' + d.version; }).catch(() => {});
+// visita (para las estadísticas de Stats Fluxy; la cuenta el servidor de la web, sin claves aquí)
+let seen = false;
+try { seen = !!sessionStorage.getItem('st-v'); sessionStorage.setItem('st-v', '1'); } catch { /* nada */ }
+if (!seen) fetch('/api/visit', { method: 'POST', body: JSON.stringify({ ref: document.referrer }) }).catch(() => {});
 applyLang();
